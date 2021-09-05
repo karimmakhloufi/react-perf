@@ -6,7 +6,7 @@ import AccordionSummary from "@material-ui/core/AccordionSummary";
 import AccordionDetails from "@material-ui/core/AccordionDetails";
 import logs from "./logs.json";
 
-const LogsTable = () => {
+const LogsTable = React.memo(() => {
   return logs.map((el) => (
     <Accordion key={el._id} className={"logrow"}>
       <AccordionSummary>
@@ -18,7 +18,7 @@ const LogsTable = () => {
       <AccordionDetails className={"content"}>{el.content}</AccordionDetails>
     </Accordion>
   ));
-};
+});
 
 function App() {
   const [inputValue, setInputvalue] = useState("");
