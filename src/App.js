@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 
 import "./App.css";
 import Accordion from "@material-ui/core/Accordion";
@@ -32,7 +32,10 @@ function App() {
       return el.timestamp.includes(filter);
     });
   };
-  const filteredLogs = filterLogsFn(logs, commitedFilter);
+  const filteredLogs = useMemo(
+    () => filterLogsFn(logs, commitedFilter),
+    [commitedFilter]
+  );
   return (
     <div className="App">
       <InputAndButton
