@@ -24,6 +24,7 @@ function App() {
   return (
     <div className="App">
       <input />
+      <button onClick={() => console.log("input value")}>Click Me</button>
       <LogsTable />
     </div>
   );
