@@ -1,10 +1,11 @@
-import React, { useRef } from "react";
+import React from "react";
 
 import "./App.css";
 import Accordion from "@material-ui/core/Accordion";
 import AccordionSummary from "@material-ui/core/AccordionSummary";
 import AccordionDetails from "@material-ui/core/AccordionDetails";
 import logs from "./logs.json";
+import InputAndButton from "./InputAndButton";
 
 const LogsTable = () => {
   return logs.map((el) => (
@@ -21,13 +22,9 @@ const LogsTable = () => {
 };
 
 function App() {
-  const inputEl = useRef(null);
   return (
     <div className="App">
-      <input ref={inputEl} />
-      <button onClick={() => console.log("input value", inputEl.current.value)}>
-        Click Me
-      </button>
+      <InputAndButton />
       <LogsTable />
     </div>
   );
