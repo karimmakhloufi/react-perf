@@ -36,3 +36,26 @@
     transform: rotate(360deg);
   }
 }
+
+.logrow {
+  background-color: #2b2b2b !important;
+  color: #bababa !important;
+  margin: 0 !important;
+}
+
+.content {
+  font-family: monospace;
+  text-align: start;
+}
+
+.error {
+  color: #e74c3c;
+}
+
+.warning {
+  color: #e67e22;
+}
+
+.info {
+  color: #95a5a6;
+}
