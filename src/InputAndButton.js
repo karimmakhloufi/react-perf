@@ -1,11 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 
-const InputAndButton = () => {
+const InputAndButton = ({ value, handleChange }) => {
   console.log("render");
-  const [value, setValue] = useState("");
   return (
     <>
-      <input value={value} onChange={(e) => setValue(e.target.value)} />
+      <input value={value} onChange={(e) => handleChange(e.target.value)} />
       <button onClick={() => console.log(value)}>ClickMe</button>
     </>
   );

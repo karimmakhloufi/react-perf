@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import "./App.css";
 import Accordion from "@material-ui/core/Accordion";
@@ -22,9 +22,10 @@ const LogsTable = () => {
 };
 
 function App() {
+  const [inputFilter, setinputFilter] = useState("");
   return (
     <div className="App">
-      <InputAndButton />
+      <InputAndButton value={inputFilter} handleChange={setinputFilter} />
       <LogsTable />
     </div>
   );
