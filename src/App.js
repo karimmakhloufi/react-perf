@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 
 import "./App.css";
 import Accordion from "@material-ui/core/Accordion";
@@ -21,10 +21,13 @@ const LogsTable = () => {
 };
 
 function App() {
+  const inputEl = useRef(null);
   return (
     <div className="App">
-      <input />
-      <button onClick={() => console.log("input value")}>Click Me</button>
+      <input ref={inputEl} />
+      <button onClick={() => console.log("input value", inputEl.current.value)}>
+        Click Me
+      </button>
       <LogsTable />
     </div>
   );
