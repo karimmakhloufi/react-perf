@@ -1,3 +1,5 @@
+import React, { useState } from "react";
+
 import "./App.css";
 import Accordion from "@material-ui/core/Accordion";
 import AccordionSummary from "@material-ui/core/AccordionSummary";
@@ -19,8 +21,13 @@ const LogsTable = () => {
 };
 
 function App() {
+  const [inputValue, setInputvalue] = useState("");
   return (
     <div className="App">
+      <input
+        value={inputValue}
+        onChange={(e) => setInputvalue(e.target.value)}
+      />
       <LogsTable />
     </div>
   );
