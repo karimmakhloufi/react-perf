@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react";
+import React, { useState } from "react";
 
 import "./App.css";
 import Accordion from "@material-ui/core/Accordion";
@@ -25,25 +25,12 @@ const LogsTable = ({ logs }) => {
 
 function App() {
   const [inputFilter, setinputFilter] = useState("");
-  const [commitedFilter, setCommitedFilter] = useState("");
-  const filterLogsFn = (logs, filter) => {
-    return logs.filter((el) => {
-      console.log("filtering");
-      return el.timestamp.includes(filter);
-    });
-  };
-  const filteredLogs = useMemo(
-    () => filterLogsFn(logs, commitedFilter),
-    [commitedFilter]
-  );
   return (
     <div className="App">
-      <InputAndButton
-        value={inputFilter}
-        handleChange={setinputFilter}
-        handleClick={setCommitedFilter}
+      <InputAndButton value={inputFilter} handleChange={setinputFilter} />
+      <LogsTable
+        logs={logs.filter((el) => el.timestamp.includes(inputFilter))}
       />
-      <LogsTable logs={filteredLogs} />
     </div>
   );
 }
