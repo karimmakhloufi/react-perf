@@ -37,7 +37,7 @@ function App() {
       />
       <button
         onClick={() => {
-          inputEl.current.value = "123";
+          inputEl.current.focus();
         }}
       >
         Use Ref
