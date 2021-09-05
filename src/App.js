@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 
 import "./App.css";
 import Accordion from "@material-ui/core/Accordion";
@@ -9,6 +9,7 @@ import logs from "./logs.json";
 import InfiniteScroll from "react-infinite-scroll-component";
 
 function App() {
+  const inputEl = useRef(null);
   const [inputFilter, setinputFilter] = useState("");
   const [visibleLogs, setVisibleLogs] = useState(logs.slice(0, 20));
   const fetchData = () => {
@@ -23,6 +24,7 @@ function App() {
   return (
     <div className="App">
       <input
+        ref={inputEl}
         value={inputFilter}
         onChange={(e) => {
           setinputFilter(e.target.value);
@@ -33,6 +35,13 @@ function App() {
           );
         }}
       />
+      <button
+        onClick={() => {
+          inputEl.current.value = "123";
+        }}
+      >
+        Use Ref
+      </button>
       <InfiniteScroll
         dataLength={visibleLogs.length}
         next={fetchData}
